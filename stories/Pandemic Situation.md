@@ -1,6 +1,6 @@
-Kadri is a student of National High School in Fruitsland. He have great interest in computer programming \
-and problem solving.He wants to be a good computer programmer and for this he takes his 'Programming for Beginners' course very seriously in school. 
-However, he was so confused about various terms of programming. For example, during the programming lecture instructor added some line on top and used some functions thats not defined in the program. Instructor called it library function. Kadri get confused, why we call them library function? From where the coming from and how can we make them? 
+Kadri is a student of National High School in Fruitsland. He have great interest in computer programming and problem solving.He wants to be a good computer programmer and for this he takes his 'Programming for Beginners' course very seriously in school. 
+
+However, he was so confused about various terms of programming. For example, during the programming instructor added some line on top and used some functions thats not defined in the program. Instructor called it library function. Kadri get confused, why we call them library function? From where the coming from and how can we make them? 
 Kadri felt miserable when he tries to think about program flow and how output is calculated from code. This two things mentioned here are just example that makes Kadri's dream to become a good programmer difficult and he also have felt depressed about other programming concept like variables, conditionals, looping etc. 
 
 Kadri's situation worsen when covid 2019 pandemic hit and his school started teaching online. In online learning environment, his interaction with instructor get much reduced. 
