@@ -1,0 +1,6 @@
+- Running godot on linux and set up project for Occulus Quest 
+- https://docs.godotengine.org/fi/stable/getting_started/workflow/export/exporting_for_android.html#doc-exporting-for-android
+- https://docs.godotengine.org/fi/stable/tutorials/vr/developing_for_oculus_quest.html
+- Godot Video Player [https://docs.godotengine.org/en/stable/classes/class_videoplayer.html]
+- May be we can try to use local videos to play at the beginning or videos from our local server? 
+- 

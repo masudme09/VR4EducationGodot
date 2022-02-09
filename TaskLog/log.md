@@ -1,0 +1,4 @@
+- Installed Godot
+- Installed android studio
+- Added empty project for Occulus and installed Occulus VR toolkit
+- 
