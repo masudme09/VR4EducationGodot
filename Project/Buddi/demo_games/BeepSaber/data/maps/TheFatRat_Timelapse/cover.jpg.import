@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.s3tc.stex"
 path.etc2="res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.etc2.stex"
+path.etc="res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo_games/BeepSaber/data/maps/TheFatRat_Timelapse/cover.jpg"
-dest_files=[ "res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.s3tc.stex", "res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.etc2.stex" ]
+dest_files=[ "res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.s3tc.stex", "res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.etc2.stex", "res://.import/cover.jpg-d163f3ccb5bbb8e5e94f8ec5298b94d6.etc.stex" ]
 
 [params]
 

@@ -9,6 +9,7 @@ export var adjust_left_right := true;
 export(vr.CONTROLLER_BUTTON) var ui_raycast_visible_button := vr.CONTROLLER_BUTTON.TOUCH_INDEX_TRIGGER;
 export(vr.CONTROLLER_BUTTON) var ui_raycast_click_button := vr.CONTROLLER_BUTTON.INDEX_TRIGGER;
 
+# Initialize the variables
 var controller : ARVRController = null;
 onready var ui_raycast_position : Spatial = $RayCastPosition;
 onready var ui_raycast : RayCast = $RayCastPosition/RayCast;
@@ -32,7 +33,7 @@ func _set_raycast_transform():
 		else:
 			ui_raycast_position.transform.basis = Basis(Vector3(deg2rad(-90),0,0));
 	else:
-		ui_raycast_position.transform.basis = Basis();
+		ui_raycast_position.transform = Transform();
 		
 		# center the ray cast better to the actual controller position
 		if (adjust_left_right):

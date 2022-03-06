@@ -79,6 +79,7 @@ text = "Song Author: TheFatRat
 Song Title: Time Lapse
 Beatmap Author: Timeweaver"
 valign = 1
+
 [connection signal="pressed" from="Play_Button" to="." method="_on_Play_Button_pressed"]
 [connection signal="pressed" from="Continue_Button" to="." method="_on_Continue_Button_pressed"]
 [connection signal="pressed" from="Restart_Button" to="." method="_on_Restart_Button_pressed"]

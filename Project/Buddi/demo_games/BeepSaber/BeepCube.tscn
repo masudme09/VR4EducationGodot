@@ -51,9 +51,7 @@ script = ExtResource( 2 )
 
 [node name="CubeMeshOrientation" type="Spatial" parent="."]
 
-[node name="BeepCube_Area" type="Area" parent="CubeMeshOrientation" groups=[
-"beepcube",
-]]
+[node name="BeepCube_Area" type="Area" parent="CubeMeshOrientation" groups=["beepcube"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="CubeMeshOrientation/BeepCube_Area"]
 shape = SubResource( 1 )

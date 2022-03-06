@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.s3tc.stex"
 path.etc2="res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.etc2.stex"
+path.etc="res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo_games/BeepSaber/data/BeepCube_Emission.png"
-dest_files=[ "res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.s3tc.stex", "res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.etc2.stex" ]
+dest_files=[ "res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.s3tc.stex", "res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.etc2.stex", "res://.import/BeepCube_Emission.png-0bf7c8b4752067221cc5c981be080248.etc.stex" ]
 
 [params]
 

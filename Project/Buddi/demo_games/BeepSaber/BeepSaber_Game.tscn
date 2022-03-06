@@ -170,5 +170,6 @@ text = "Score"
 margin = 0
 background_color = Color( 0, 0, 0, 0 )
 transparent = true
+
 [connection signal="area_entered" from="OQ_ARVROrigin/OQ_LeftController/LeftLightSaber" to="." method="_on_LeftLightSaber_area_entered"]
 [connection signal="area_entered" from="OQ_ARVROrigin/OQ_RightController/RightLightSaber" to="." method="_on_RightLightSaber_area_entered"]
