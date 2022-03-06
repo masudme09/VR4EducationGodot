@@ -3,4 +3,4 @@
 - https://docs.godotengine.org/fi/stable/tutorials/vr/developing_for_oculus_quest.html
 - Godot Video Player [https://docs.godotengine.org/en/stable/classes/class_videoplayer.html]
 - May be we can try to use local videos to play at the beginning or videos from our local server? 
-- 
+- Connect Keyboard & Mouse with quest and mixed reality
