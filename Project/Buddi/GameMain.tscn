@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/godot-xr-tools/assets/RightHand.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/texture_1m x 1m.png" type="Texture" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Direct_movement.tscn" type="PackedScene" id=5]
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Teleport.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/assets/PlayerBody.tscn" type="PackedScene" id=7]
-[ext_resource path="res://OQ_Toolkit/OQ_UI2D/controls/VirtualKeyboard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://OQ_Toolkit/OQ_UI2D/OQ_UI2DKeyboard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://OQ_Toolkit/OQ_ARVRController/Feature_UIRayCast.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Feature_UIRayCastBuddi.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/ControllerBuddi.gd" type="Script" id=11]
+[ext_resource path="res://OQ_Toolkit/OQ_UI2D/OQ_UI2DLabel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 1000, 1000 )
@@ -56,6 +57,11 @@ material/0 = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 3 )
 
-[node name="VirtualKeyboard" parent="." instance=ExtResource( 8 )]
+[node name="OQ_UI2DKeyboard" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.802764, 0 )
+
+[node name="TestTextInputLabel" parent="OQ_UI2DKeyboard" instance=ExtResource( 12 )]
+transform = Transform( 1, 1.49012e-08, 0, -2.98023e-08, 1, 0, 1.19209e-07, 8.9407e-08, 1, -0.0634619, 0.380599, 0.0986535 )
+text = "Input Log"
 
 [editable path="FPController"]
