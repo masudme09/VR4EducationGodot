@@ -11,7 +11,7 @@ signal visible_state
 signal pose_recentered
 
 export var auto_initialise = true
-export var start_passthrough = false
+export var start_passthrough = true
 export (NodePath) var viewport = null
 
 var interface : ARVRInterface
@@ -20,6 +20,8 @@ func get_interface() -> ARVRInterface:
 	return interface
 
 func _ready():
+	get_viewport().set_transparent_background(true)
+	print(str(get_viewport().transparent_bg))
 	if auto_initialise:
 		initialise()
 

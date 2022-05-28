@@ -14,6 +14,10 @@ func _process(delta):
 		
 		$AnimationTree.set("parameters/Grip/blend_amount", grip)
 		$AnimationTree.set("parameters/Trigger/blend_amount", trigger)
+
+		if trigger > 0:
+			controller.get_hand()
 		
 		# var grip_state = controller.is_button_pressed(JOY_VR_GRIP)
-		# print("Pressed: " + str(grip_state))
+		# var pressed_button = controller.get_joystick_id()
+		# print("Pressed: " + str(pressed_button))
