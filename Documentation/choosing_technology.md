@@ -9,11 +9,11 @@ On the other hand, running linux on top of android is easy and lots of existing 
 
 So, I have tried to find out suitable existing technology that can be used to install linux on Meta Quest and provides best usable experience. I have tested following ways so far:
 
-1. Hudders tutorial: https://pastebin.pl/view/65faf5e0
+1. Hudders tutorial: https://pastebin.pl/view/65faf5e0 \
    In this tutorial, a linux terminal emulator called Termux is used and with the emulator some custom scripts has been executed to download and install Debian based linux distro. This attempt was successful with following limitations:
    - VNC viewer resolution is low and only can have mobile like small potrait window
    - Graphical UI based application can not be run and can only run command line based application
-2. Using Andronix, Termux & VNCViewer
+2. Using Andronix, Termux & VNCViewer \
    Next I have tested an application named Androidnix where they provided almost all popular linux distros and also paid mod version, specificly build for android. I have tried to install ubuntu and manjaro with xfce display type. 
    Good:
     - Resoulution can be set while starting vncserver
