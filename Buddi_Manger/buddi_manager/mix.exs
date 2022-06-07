@@ -3,6 +3,10 @@ defmodule BuddiManager.MixProject do
 
   def project do
     [
+      preferred_cli_env: [
+        "test.reset": :test,
+        "test.migrate": :test
+      ],
       app: :buddi_manager,
       version: "0.1.0",
       elixir: "~> 1.12",
@@ -49,7 +53,8 @@ defmodule BuddiManager.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev}
     ]
   end
 
@@ -64,7 +69,9 @@ defmodule BuddiManager.MixProject do
       setup: ["deps.get", "ecto.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      # test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      "test.migrate": ["ecto.migrate"],
+      "test.reset": ["ecto.drop", "ecto.create", "ecto.load", "ecto.migrate"],
       "assets.deploy": [
         "esbuild default --minify",
         "sass default --no-source-map --style=compressed",

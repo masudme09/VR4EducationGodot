@@ -21,9 +21,11 @@ defmodule BuddiManagerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BuddiManagerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", BuddiManagerWeb do
+    pipe_through :api
+
+    resources "/notes", NoteController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #

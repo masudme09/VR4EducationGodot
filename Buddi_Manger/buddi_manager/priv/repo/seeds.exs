@@ -1,11 +1,19 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     BuddiManager.Repo.insert!(%BuddiManager.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+BuddiManager.Repo.insert!(%BuddiManager.Notes.Note{
+  created_by: "Masud Rana",
+  label: "test task 1"
+})
+
+BuddiManager.Repo.insert!(%BuddiManager.Notes.Note{
+  created_by: "Masud Rana",
+  label: "test task 2"
+})
+
+BuddiManager.Repo.insert!(%BuddiManager.Notes.Note{
+  created_by: "Masud Rana",
+  label: "test task 3"
+})
+
+BuddiManager.Repo.insert!(%BuddiManager.Notes.Note{
+  created_by: "Masud Rana",
+  label: "test task 4"
+})
