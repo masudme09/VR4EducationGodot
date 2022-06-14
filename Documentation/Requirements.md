@@ -1,0 +1,4 @@
+- Audio problem needs to be solved in termux
+- Video playing in browser
+- Open browser from termux 
+- open link with native occulus browser

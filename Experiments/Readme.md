@@ -17,3 +17,5 @@ Current godot documentation sometimes not properly sync with latest release. Als
 
 Finally, I have tested Oculus Mobile Plugin and it seems, controller and key press is working with the demo scene provided by plugin. Although, this plugin is deprecated but as its working with basic thing, I am trying to achieve my main requirements with it.
 Also, it have some popular implementation available that should be help during the process. 
+
+After a few hours of more testing, I could use openXR properly and decided to use OpenXR and occulus plugin together. 
