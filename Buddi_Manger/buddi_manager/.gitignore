@@ -29,10 +29,11 @@ buddi_manager-*.tar
 /priv/static/cache_manifest.json
 
 # In case you use Node.js/npm, you want to ignore these.
+mix.lock
 npm-debug.log
 /assets/node_modules/
 /assets/package-lock.json
 
-*.lock
+
 
 
