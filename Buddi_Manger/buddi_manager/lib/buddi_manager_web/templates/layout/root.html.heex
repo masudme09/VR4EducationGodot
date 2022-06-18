@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="csrf-token" content={csrf_token_value()}>
-    <%= live_title_tag assigns[:page_title] || "Buddi Manager" %>
-    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
-  </head>
-  <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary d-flex justify-content-center">
-      <div class="d-flex flex-row ">
-        <label class="label h2 mb-5 text-white display-4">Manage Buddi</label>
-      </div>
-    </nav>
-    <%= @inner_content %>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content={csrf_token_value()}>
+  <%= live_title_tag assigns[:page_title] || "Buddi Manager" %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css" )} />
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
+</head>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary d-flex align-items-md-center justify-content-between">
+    <div class="mx-5">
+      <label class="label text-white">Buddi</label>
+    </div>
+    <div class="mx-5">
+      <label class="label text-white">Profile</label>
+    </div>
+  </nav>
+  <%= @inner_content %>
+</body>
+
 </html>
