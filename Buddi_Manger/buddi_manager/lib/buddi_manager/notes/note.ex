@@ -2,7 +2,7 @@ defmodule BuddiManager.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required [:created_by]
+  @required [:created_by, :content]
 
   @optional [
     :label,
@@ -15,6 +15,7 @@ defmodule BuddiManager.Notes.Note do
     field :created, :utc_datetime
     field :updated, :utc_datetime
     field :label, :string
+    field :content, :string
 
     timestamps()
   end
