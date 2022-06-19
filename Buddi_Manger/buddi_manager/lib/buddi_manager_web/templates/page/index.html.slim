@@ -13,7 +13,11 @@
 			label.ms-2 = "Create image Note"
 	.col-8.my-2.content
 		.d-flex.justify-content-center
-			label = "Notes"
+			= for note <- @notes do
+				.note.d-flex.flex-column.mx-2
+					p = note.content
+					p = "Created_by: " <> note.created_by
+					p = note.inserted_at
 
 	.col-2.my-2.users
 		.d-flex.justify-content-end

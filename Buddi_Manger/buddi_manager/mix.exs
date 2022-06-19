@@ -57,7 +57,8 @@ defmodule BuddiManager.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev}
+      {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
+      {:neotoma, "~> 1.7.3", manager: :rebar3, override: true}
     ]
   end
 
