@@ -5,7 +5,8 @@ defmodule BuddiManager.Accounts.User do
   @required [:email, :password, :user_name]
 
   @optional [
-    :institution
+    :institution,
+    :name
   ]
 
   schema "users" do
@@ -22,6 +23,9 @@ defmodule BuddiManager.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, @required ++ @optional)
-    |> validate_required([@required])
+    |> validate_required(@required)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+    |> unique_constraint(:user_name)
   end
 end

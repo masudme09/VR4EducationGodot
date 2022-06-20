@@ -3,6 +3,14 @@ defmodule BuddiManager.NotesTest do
 
   alias BuddiManager.Notes
 
+  @create_attrs %{
+    created: ~U[2022-06-04 19:21:00Z],
+    created_by: "some created_by",
+    content: "some text bla bla",
+    label: "some label",
+    updated: ~U[2022-06-04 19:21:00Z]
+  }
+
   describe "notes" do
     alias BuddiManager.Notes.Note
 
@@ -21,7 +29,7 @@ defmodule BuddiManager.NotesTest do
     end
 
     test "create_note/1 with valid data creates a note" do
-      valid_attrs = %{created_by: "some created_by"}
+      valid_attrs = @create_attrs
 
       assert {:ok, %Note{} = note} = Notes.create_note(valid_attrs)
       assert note.created_by == "some created_by"

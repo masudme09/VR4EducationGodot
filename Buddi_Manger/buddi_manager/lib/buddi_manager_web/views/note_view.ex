@@ -16,6 +16,7 @@ defmodule BuddiManagerWeb.NoteView do
       created_by: note.created_by,
       created: note.created,
       updated: note.updated,
+      content: note.content,
       label: note.label
     }
   end

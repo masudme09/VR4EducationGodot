@@ -24,6 +24,7 @@ defmodule BuddiManagerWeb.Router do
   scope "/api", BuddiManagerWeb do
     pipe_through :api
 
+    resources "/users", UserController, except: [:new, :edit]
     resources "/notes", NoteController, except: [:new, :edit]
   end
 

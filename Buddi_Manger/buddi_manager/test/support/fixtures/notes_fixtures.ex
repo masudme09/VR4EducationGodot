@@ -11,7 +11,11 @@ defmodule BuddiManager.NotesFixtures do
     {:ok, note} =
       attrs
       |> Enum.into(%{
-        created_by: "some created_by"
+        created_by: "some created_by",
+        created: ~U[2022-06-04 19:21:00Z],
+        content: "some text bla bla",
+        label: "some label",
+        updated: ~U[2022-06-04 19:21:00Z]
       })
       |> BuddiManager.Notes.create_note()
 
