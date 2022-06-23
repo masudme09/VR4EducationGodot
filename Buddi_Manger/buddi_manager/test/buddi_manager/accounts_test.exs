@@ -8,7 +8,16 @@ defmodule BuddiManager.AccountsTest do
 
     import BuddiManager.AccountsFixtures
 
-    @invalid_attrs %{email: nil, institution: nil, name: nil, "no-context": nil, "no-schema": nil, password: nil, user_name: nil, "—": nil}
+    @invalid_attrs %{
+      email: nil,
+      institution: nil,
+      name: nil,
+      "no-context": nil,
+      "no-schema": nil,
+      password: nil,
+      user_name: nil,
+      "—": nil
+    }
 
     test "list_users/0 returns all users" do
       user = user_fixture()
@@ -21,7 +30,16 @@ defmodule BuddiManager.AccountsTest do
     end
 
     test "create_user/1 with valid data creates a user" do
-      valid_attrs = %{email: "bla@email.com", institution: "some institution", name: "some name", "no-context": "some no-context", "no-schema": "some no-schema", password: "some password", user_name: "some user_name", "—": "some —"}
+      valid_attrs = %{
+        email: "bla@email.com",
+        institution: "some institution",
+        name: "some name",
+        "no-context": "some no-context",
+        "no-schema": "some no-schema",
+        password: "some password",
+        user_name: "some user_name",
+        "—": "some —"
+      }
 
       assert {:ok, %User{} = user} = Accounts.create_user(valid_attrs)
       assert user.email == "bla@email.com"
@@ -37,7 +55,17 @@ defmodule BuddiManager.AccountsTest do
 
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
-      update_attrs = %{email: "bla@email.com", institution: "some updated institution", name: "some updated name", "no-context": "some updated no-context", "no-schema": "some updated no-schema", password: "some updated password", user_name: "some updated user_name", "—": "some updated —"}
+
+      update_attrs = %{
+        email: "bla@email.com",
+        institution: "some updated institution",
+        name: "some updated name",
+        "no-context": "some updated no-context",
+        "no-schema": "some updated no-schema",
+        password: "some updated password",
+        user_name: "some updated user_name",
+        "—": "some updated —"
+      }
 
       assert {:ok, %User{} = user} = Accounts.update_user(user, update_attrs)
       assert user.email == "bla@email.com"

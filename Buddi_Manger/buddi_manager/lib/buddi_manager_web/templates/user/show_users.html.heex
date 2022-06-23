@@ -1,0 +1,5 @@
+<div>
+  <%= for user <- list_users(5) do %>
+    <%= render(BuddiManagerWeb.PageView, "user_display.html", conn: @conn, user: user) %>
+  <% end %>
+</div>

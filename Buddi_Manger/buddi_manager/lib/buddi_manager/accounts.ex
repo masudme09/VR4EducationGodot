@@ -21,6 +21,10 @@ defmodule BuddiManager.Accounts do
     Repo.all(User)
   end
 
+  def list_users(limit) do
+    Repo.all(User, limit: limit)
+  end
+
   @doc """
   Gets a single user.
 

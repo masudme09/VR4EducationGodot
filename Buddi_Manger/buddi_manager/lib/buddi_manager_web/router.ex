@@ -17,6 +17,7 @@ defmodule BuddiManagerWeb.Router do
   scope "/", BuddiManagerWeb do
     pipe_through :browser
 
+    get "/dashboard", DashboardController, :index
     get "/", PageController, :index
   end
 

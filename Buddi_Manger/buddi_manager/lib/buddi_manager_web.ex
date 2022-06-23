@@ -94,6 +94,7 @@ defmodule BuddiManagerWeb do
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
+      import BuddiManager.ViewHelpers
 
       import BuddiManagerWeb.ErrorHelpers
       import BuddiManagerWeb.Gettext

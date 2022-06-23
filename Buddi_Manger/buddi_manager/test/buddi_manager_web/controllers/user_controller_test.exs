@@ -19,7 +19,16 @@ defmodule BuddiManagerWeb.UserControllerTest do
     password: "some updated password",
     user_name: "some updated user_name"
   }
-  @invalid_attrs %{email: nil, institution: nil, name: nil, "no-context": nil, "no-schema": nil, password: nil, user_name: nil, "—": nil}
+  @invalid_attrs %{
+    email: nil,
+    institution: nil,
+    name: nil,
+    "no-context": nil,
+    "no-schema": nil,
+    password: nil,
+    user_name: nil,
+    "—": nil
+  }
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}

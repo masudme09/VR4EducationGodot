@@ -26,11 +26,11 @@
   </nav>
 
   <div class="page_content p-0">
-    <%= @inner_content %>
+    <%= render("sidebar.html", conn: @conn, inner_content: @inner_content) %>
   </div>
 
   <div class="footer d-flex justify-content-center align-items-center">
-    <label class="label">@Copyright MIT</label>
+    <label class="label text-white">@Copyright MIT</label>
   </div>
 </body>
 

@@ -4,9 +4,11 @@ defmodule BuddiManager.Notes do
   """
 
   import Ecto.Query, warn: false
-  alias BuddiManager.Repo
+  alias BuddiManager.{Repo, Pagination}
 
   alias BuddiManager.Notes.Note
+
+  @notes_per_page 14
 
   @doc """
   Returns the list of notes.
@@ -19,6 +21,14 @@ defmodule BuddiManager.Notes do
   """
   def list_notes do
     Repo.all(Note)
+  end
+
+  def list_notes(a, page \\ 1, per_page \\ @notes_per_page)
+
+  def list_notes(:paged, page, per_page) do
+    Note
+    |> order_by(desc: :updated_at)
+    |> Pagination.page(page, per_page: per_page)
   end
 
   @doc """

@@ -20,4 +20,8 @@ defmodule BuddiManagerWeb.UserView do
       user_name: user.user_name
     }
   end
+
+  def list_users(count) do
+    BuddiManager.Accounts.list_users(count)
+  end
 end
