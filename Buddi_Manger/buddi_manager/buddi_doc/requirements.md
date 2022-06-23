@@ -12,6 +12,7 @@
 10. As a user, I want to use my voice to take notes
     <https://www.youtube.com/watch?v=rwB6RqqCmXc>
 11. As a developer, I can use API to upload the notes
+    https://itnext.io/building-apis-with-phoenix-framework-a7e280b7fa4a
 12. As a developer, I can upload images to the system by using API
 13. As a developer, I want to save voice notes to the system
 14. As a developer, after getting autheticated, I can send my notes to other system users whom I am connected with

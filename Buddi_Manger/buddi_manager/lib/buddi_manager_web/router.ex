@@ -17,6 +17,7 @@ defmodule BuddiManagerWeb.Router do
   scope "/", BuddiManagerWeb do
     pipe_through :browser
 
+    get "/dashboard", DashboardController, :index
     get "/", PageController, :index
   end
 
@@ -24,6 +25,7 @@ defmodule BuddiManagerWeb.Router do
   scope "/api", BuddiManagerWeb do
     pipe_through :api
 
+    resources "/users", UserController, except: [:new, :edit]
     resources "/notes", NoteController, except: [:new, :edit]
   end
 

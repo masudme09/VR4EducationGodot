@@ -12,7 +12,7 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js" )}></script>
 </head>
 
-<body class="root container ms-12">
+<body class="root">
   <nav class="navbar main navbar-expand-lg navbar-light d-flex align-items-md-center justify-content-between">
     <div class="mx-2">
       <label class="label logo">Buddi</label>
@@ -25,12 +25,12 @@
     </div>
   </nav>
 
-  <div class="page_content container p-0">
-    <%= @inner_content %>
+  <div class="page_content p-0">
+    <%= render("sidebar.html", conn: @conn, inner_content: @inner_content) %>
   </div>
 
-  <div class="footer container d-flex justify-content-center align-items-center">
-    <label class="label">@Copyright MIT</label>
+  <div class="footer d-flex justify-content-center align-items-center">
+    <label class="label text-white">@Copyright MIT</label>
   </div>
 </body>
 

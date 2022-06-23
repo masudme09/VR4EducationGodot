@@ -1,0 +1,16 @@
+- first_row_notes = first_notes_row(@notes.list, @per_row) 
+- second_row_notes = second_notes_row(@notes.list, @per_row)
+
+.d-flex.justify-content-start
+  = for note <- first_row_notes do
+    = render(BuddiManagerWeb.PageView, "note_card.html", conn: @conn, note: note)
+.d-flex.justify-content-start.my-3
+  = for note <- second_row_notes do
+    = render(BuddiManagerWeb.PageView, "note_card.html", conn: @conn, note: note)
+
+.d-flex.my-5.me-5.justify-content-center
+	- next = if !@notes.has_next, do: "disabled", else: ""
+	- prev = if !@notes.has_prev, do: "disabled", else: ""
+
+	= link("PREVIOUS", to: Routes.page_path(@conn, :index, page: (@notes.page - 1)), class: "button btn btn-sm btn-primary me-2 #{prev}", style: "width: 100px;")
+	= link("NEXT", to: Routes.page_path(@conn, :index, page: (@notes.page + 1)), class: "button btn btn-sm btn-primary ms-2 #{next}", style: "width: 100px;")

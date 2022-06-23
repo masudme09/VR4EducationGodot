@@ -8,12 +8,14 @@ defmodule BuddiManagerWeb.NoteControllerTest do
   @create_attrs %{
     created: ~U[2022-06-04 19:21:00Z],
     created_by: "some created_by",
+    content: "some text bla bla",
     label: "some label",
     updated: ~U[2022-06-04 19:21:00Z]
   }
   @update_attrs %{
     created: ~U[2022-06-05 19:21:00Z],
     created_by: "some updated created_by",
+    content: "some update text bla bla",
     label: "some updated label",
     updated: ~U[2022-06-05 19:21:00Z]
   }
@@ -41,6 +43,7 @@ defmodule BuddiManagerWeb.NoteControllerTest do
                "id" => ^id,
                "created" => "2022-06-04T19:21:00Z",
                "created_by" => "some created_by",
+               "content" => "some text bla bla",
                "label" => "some label",
                "updated" => "2022-06-04T19:21:00Z"
              } = json_response(conn, 200)["data"]
@@ -65,6 +68,7 @@ defmodule BuddiManagerWeb.NoteControllerTest do
                "id" => ^id,
                "created" => "2022-06-05T19:21:00Z",
                "created_by" => "some updated created_by",
+               "content" => "some update text bla bla",
                "label" => "some updated label",
                "updated" => "2022-06-05T19:21:00Z"
              } = json_response(conn, 200)["data"]
