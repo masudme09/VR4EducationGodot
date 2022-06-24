@@ -1,31 +1,28 @@
-defmodule BuddiManager.Accounts.User do
-  use Ecto.Schema
+defmodule BuddiManager.Users.User do
   import Ecto.Changeset
-
-  @required [:email, :password, :user_name]
-
+  use Ecto.Schema
+  use Pow.Ecto.Schema
+  @required [:email, :password_hash, :name]
   @optional [
-    :institution,
-    :name
+    :institution
   ]
 
   schema "users" do
-    field :email, :string
+    pow_user_fields()
     field :institution, :string
     field :name, :string
-    field :password, :string
-    field :user_name, :string
 
     timestamps()
   end
 
-  @doc false
   def changeset(user, attrs) do
     user
+    |> pow_changeset(attrs)
     |> cast(attrs, @required ++ @optional)
+    |> IO.inspect
     |> validate_required(@required)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
-    |> unique_constraint(:user_name)
+    |> IO.inspect(label: :final)
   end
 end

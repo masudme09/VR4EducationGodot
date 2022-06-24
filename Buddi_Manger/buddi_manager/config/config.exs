@@ -58,6 +58,11 @@ config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
 
+config :buddi_manager, :pow,
+  user: BuddiManager.Users.User,
+  repo: BuddiManager.Repo,
+  web_module: BuddiManagerWeb
+
 config :mime, :types, %{
   "application/json" => ["json"]
 }

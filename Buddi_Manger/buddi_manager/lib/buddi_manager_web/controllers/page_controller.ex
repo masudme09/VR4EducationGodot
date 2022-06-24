@@ -11,12 +11,11 @@ defmodule BuddiManagerWeb.PageController do
     per_row = div(per_page, 2)
     notes = Notes.list_notes(:paged, page, per_page)
 
-    conn =
-      conn
-      |> assign(:notes, notes)
-      |> assign(:per_page, per_page)
-      |> assign(:per_row, per_row)
-
-    render(conn, "index.html")
+    conn
+    |> assign(:notes, notes)
+    |> assign(:per_page, per_page)
+    |> assign(:per_row, per_row)
+    |> put_layout("dashboard.html")
+    |> render("index.html")
   end
 end

@@ -13,25 +13,6 @@
 </head>
 
 <body class="root">
-  <nav class="navbar main navbar-expand-lg navbar-light d-flex align-items-md-center justify-content-between">
-    <div class="mx-2">
-      <label class="label logo">Buddi</label>
-    </div>
-    <div class="mx-2 d-flex align-items-md-center ">
-      <span class="material-icons">
-        account_circle
-      </span>
-      <a href="#" class="mx-2 text-light">Logout</a>
-    </div>
-  </nav>
-
-  <div class="page_content p-0">
-    <%= render("sidebar.html", conn: @conn, inner_content: @inner_content) %>
-  </div>
-
-  <div class="footer d-flex justify-content-center align-items-center">
-    <label class="label text-white">@Copyright MIT</label>
-  </div>
+  <%= @inner_content %>
 </body>
-
 </html>

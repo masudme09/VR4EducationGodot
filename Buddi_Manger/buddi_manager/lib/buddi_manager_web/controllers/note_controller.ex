@@ -40,4 +40,19 @@ defmodule BuddiManagerWeb.NoteController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def new_web(conn, _params) do
+    # need to get the logged in user
+    # Create Note changeset and render note creation form
+
+  end
+
+  def create_web(conn, %{"note" => note_params}) do
+    with {:ok, %Note{} = note} <- Notes.create_note(note_params) do
+      conn
+      |> put_status(:created)
+      |> put_resp_header("location", Routes.note_path(conn, :show, note))
+      |> render("show.json", note: note)
+    end
+  end
 end

@@ -1,5 +1,6 @@
 defmodule BuddiManagerWeb.Router do
   use BuddiManagerWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -10,12 +11,23 @@ defmodule BuddiManagerWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", BuddiManagerWeb do
+  scope "/" do
     pipe_through :browser
+
+    pow_routes()
+  end
+
+  scope "/", BuddiManagerWeb do
+    pipe_through [:browser, :protected]
 
     get "/dashboard", DashboardController, :index
     get "/", PageController, :index
@@ -36,15 +48,16 @@ defmodule BuddiManagerWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
 
-    scope "/" do
-      pipe_through :browser
+  # if Mix.env() in [:dev, :test] do
+  #   import Phoenix.LiveDashboard.Router
 
-      live_dashboard "/dashboard", metrics: BuddiManagerWeb.Telemetry
-    end
-  end
+  #   scope "/" do
+  #     pipe_through :browser
+
+  #     live_dashboard "/dashboard", metrics: BuddiManagerWeb.Telemetry
+  #   end
+  # end
 
   # Enables the Swoosh mailbox preview in development.
   #

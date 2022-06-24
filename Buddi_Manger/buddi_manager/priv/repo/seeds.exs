@@ -166,26 +166,23 @@ BuddiManager.Repo.insert!(%BuddiManager.Notes.Note{
   label: "test task 24"
 })
 
-%BuddiManager.Accounts.User{
+%BuddiManager.Users.User{
   name: "Masud Rana",
   email: "masud@buddi.com",
-  password: "abcds",
-  user_name: "masuder"
+  password_hash: "abcds"
 }
 |> BuddiManager.Repo.insert!()
 
-%BuddiManager.Accounts.User{
+%BuddiManager.Users.User{
   name: "Abrar Fahad",
   email: "masud1@buddi.com",
-  password: "abcds",
-  user_name: "masuder1"
+  password_hash: "abcds"
 }
 |> BuddiManager.Repo.insert!()
 
-%BuddiManager.Accounts.User{
+%BuddiManager.Users.User{
   name: "Imran Talikdar",
   email: "masud2@buddi.com",
-  password: "abcds",
-  user_name: "masuder2"
+  password_hash: "abcds"
 }
 |> BuddiManager.Repo.insert!()
