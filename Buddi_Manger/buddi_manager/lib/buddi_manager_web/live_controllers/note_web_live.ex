@@ -1,19 +1,21 @@
 defmodule BuddiManagerWeb.NoteWebLive do
   use BuddiManagerWeb, :live_view
   # import BuddiManagerWeb.LiveHelpers
-  # import Pow.Plug
   # alias BuddiManager.Notes
   # alias BuddiManager.Notes.Note
 
   def render(assigns) do
     # IO.inspect(assigns)
-    Phoenix.View.render(BuddiManagerWeb.NoteWebView, "index.html", assigns)
+    Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "index.html", assigns)
   end
 
-  def mount(_params, session, socket) do
-    IO.inspect(session)
+  def mount(_params, %{"current_user" => user, "config" => pow_config} = _session, socket) do
+    fake_conn =
+      %Plug.Conn{}
+      |> Pow.Plug.put_config(pow_config)
+      |> Pow.Plug.assign_current_user(user, pow_config)
 
-    {:ok, socket}
+    {:ok, socket |> assign(conn: fake_conn)}
   end
 
   # def index(conn, _params) do

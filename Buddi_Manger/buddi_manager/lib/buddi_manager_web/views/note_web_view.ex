@@ -1,3 +1,3 @@
-defmodule BuddiManagerWeb.NoteWebView do
+defmodule BuddiManagerWeb.NoteWebLiveView do
   use BuddiManagerWeb, :view
 end

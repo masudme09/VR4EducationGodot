@@ -17,6 +17,10 @@ defmodule BuddiManagerWeb.Router do
       error_handler: Pow.Phoenix.PlugErrorHandler
   end
 
+  pipeline :live_init do
+    plug Plugs.SocketInit
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -32,6 +36,10 @@ defmodule BuddiManagerWeb.Router do
 
     get "/dashboard", DashboardController, :index
     get "/", PageController, :index
+  end
+
+  scope "/live", BuddiManagerWeb do
+    pipe_through [:browser, :protected, :live_init]
     live "/note", NoteWebLive
   end
 

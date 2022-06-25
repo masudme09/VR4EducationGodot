@@ -62,8 +62,8 @@ config :buddi_manager, :pow,
   user: BuddiManager.Users.User,
   repo: BuddiManager.Repo,
   web_module: BuddiManagerWeb,
-  controller_callbacks: BuddiManagerWeb.Pow.ControllerCallbacks,
   cache_store_backend: Pow.Store.Backend.MnesiaCache
+  # controller_callbacks: BuddiManagerWeb.Pow.ControllerCallbacks,
 
 config :mime, :types, %{
   "application/json" => ["json"]
