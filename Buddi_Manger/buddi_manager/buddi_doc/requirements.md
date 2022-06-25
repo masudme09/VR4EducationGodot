@@ -2,8 +2,9 @@
 
 1. User authetication
 <https://www.youtube.com/watch?v=hnD0Z0LGMIk>
-1. As a user, I can write text based notes with markups
-2. As a user, I can save my notes to the system
+2. As a user, I can write text based notes with markups
+<https://elixircasts.io/parsing-markdown-in-elixir-with-earmark>
+3. As a user, I can save my notes to the system
 3. As a user, I can download my notes
 4. As a user, I can see all my notes in one dashnboard
 5. As a user, I can delete my notes

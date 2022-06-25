@@ -2,7 +2,7 @@ defmodule BuddiManagerWeb.NoteWebLive do
   use BuddiManagerWeb, :live_view
   # import BuddiManagerWeb.LiveHelpers
   # alias BuddiManager.Notes
-  # alias BuddiManager.Notes.Note
+  alias BuddiManager.Notes.Note
 
   def render(assigns) do
     # IO.inspect(assigns)
@@ -15,7 +15,34 @@ defmodule BuddiManagerWeb.NoteWebLive do
       |> Pow.Plug.put_config(pow_config)
       |> Pow.Plug.assign_current_user(user, pow_config)
 
-    {:ok, socket |> assign(conn: fake_conn)}
+    changeset =
+      %Note{
+        created_by: user.name,
+        user: user,
+        content: ""
+      }
+      |> Note.changeset(%{})
+
+    socket =
+      socket
+      |> assign(conn: fake_conn)
+      |> assign(changeset: changeset)
+      |> assign(preview_content: "")
+
+    {:ok, socket}
+  end
+
+  def handle_event("form.create_note.change", params, socket) do
+    %{
+      "note" => %{"content" => content}
+    } = params
+
+    content =
+      content
+      |> Earmark.as_html!()
+      |> Phoenix.HTML.raw()
+
+    {:noreply, socket |> assign(preview_content: content)}
   end
 
   # def index(conn, _params) do
