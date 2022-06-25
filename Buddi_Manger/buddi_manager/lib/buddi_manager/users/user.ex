@@ -11,7 +11,7 @@ defmodule BuddiManager.Users.User do
     pow_user_fields()
     field :institution, :string
     field :name, :string
-
+    has_many :note, BuddiManager.Notes.Note
     timestamps()
   end
 

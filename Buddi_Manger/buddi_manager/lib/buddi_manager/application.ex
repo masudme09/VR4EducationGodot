@@ -15,7 +15,11 @@ defmodule BuddiManager.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: BuddiManager.PubSub},
       # Start the Endpoint (http/https)
-      BuddiManagerWeb.Endpoint
+      BuddiManagerWeb.Endpoint,
+      Pow.Store.Backend.MnesiaCache
+      # # Or in a distributed system:
+      # {Pow.Store.Backend.MnesiaCache, extra_db_nodes: {Node, :list, []}},
+      # Pow.Store.Backend.MnesiaCache.Unsplit # Recover from netsplit
       # Start a worker by calling: BuddiManager.Worker.start_link(arg)
       # {BuddiManager.Worker, arg}
     ]

@@ -1,12 +1,13 @@
 defmodule BuddiManagerWeb.Router do
   use BuddiManagerWeb, :router
   use Pow.Phoenix.Router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_live_flash
     plug :put_root_layout, {BuddiManagerWeb.LayoutView, :root}
+    plug :fetch_live_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -31,6 +32,7 @@ defmodule BuddiManagerWeb.Router do
 
     get "/dashboard", DashboardController, :index
     get "/", PageController, :index
+    live "/note", NoteWebLive
   end
 
   # Other scopes may use custom stacks.
