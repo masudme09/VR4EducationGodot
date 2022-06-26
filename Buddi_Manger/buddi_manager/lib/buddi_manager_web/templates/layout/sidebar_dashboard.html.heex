@@ -7,10 +7,11 @@
       <label class="ms-2"> Home </label>
     </a>
 
-    <button class="btn d-flex flex-row justify-content-start">
+    <a class="btn d-flex flex-row justify-content-start"
+      href={Routes.live_path(@conn, BuddiManagerWeb.NoteWebLive)}>
       <span class="material-icons md-24"> description </span>
       <label class="ms-2"> Create Text Note </label>
-    </button>
+    </a>
 
     <button class="btn d-flex flex-row justify-content-start">
       <span class="material-icons md-24"> mic </span>
