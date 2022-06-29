@@ -3,71 +3,96 @@ defmodule BuddiManagerWeb.NoteWebLive do
   # import BuddiManagerWeb.LiveHelpers
   # alias BuddiManager.Notes
   alias BuddiManager.Notes.Note
+  alias BuddiManager.Repo
 
-  def render(assigns) do
-    # IO.inspect(assigns)
+  def render(assigns, _params \\ %{}) do
     Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "index.html", assigns)
   end
 
-  def mount(_params, %{"current_user" => user, "config" => pow_config} = _session, socket) do
+  def mount(params, %{"current_user" => user, "config" => pow_config} = _session, socket) do
+    note_id = params |> Map.get("id")
+
     fake_conn =
       %Plug.Conn{}
       |> Pow.Plug.put_config(pow_config)
       |> Pow.Plug.assign_current_user(user, pow_config)
 
     changeset =
-      %Note{
-        created_by: user.name,
-        user: user,
-        content: ""
-      }
-      |> Note.changeset(%{})
+      if note_id do
+        Repo.get!(Note, note_id)
+        |> Note.changeset()
+      else
+        %Note{
+          user: user,
+          content: ""
+        }
+        |> Note.changeset(%{})
+      end
 
     socket =
       socket
       |> assign(conn: fake_conn)
+      |> assign(current_user: user)
       |> assign(changeset: changeset)
       |> assign(preview_content: "")
+      |> assign(preview_label: "")
 
     {:ok, socket}
   end
 
   def handle_event("form.create_note.change", params, socket) do
     %{
-      "note" => %{"content" => content}
+      "note" => %{"content" => content, "label" => label} = note_params
     } = params
+
+    # Update changeset
+    changeset =
+      socket.assigns.changeset.data
+      |> Note.changeset(note_params)
 
     content =
       content
       |> Earmark.as_html!()
       |> Phoenix.HTML.raw()
 
-    {:noreply, socket |> assign(preview_content: content)}
+    socket =
+      socket
+      |> assign(preview_content: content)
+      |> assign(preview_label: label)
+      |> assign(changeset: changeset)
+
+    {:noreply, socket}
   end
 
-  # def index(conn, _params) do
-  #   current_user = current_user(conn)
+  def handle_event(
+        "form.create_note.submit",
+        %{
+          "note" => %{"content" => content, "label" => label} = note_params
+        } = params,
+        socket
+      ) do
+    result =
+      socket.assigns.changeset.data
+      |> Repo.preload([:user])
+      |> Note.changeset(note_params)
+      |> Repo.insert_or_update()
 
-  #   changeset =
-  #     %Note{
-  #       created_by: current_user.name,
-  #       user: current_user,
-  #       content: ""
-  #     }
-  #     |> Note.changeset(%{})
+    case result do
+      {:ok, _} ->
+        {:noreply,
+         socket
+         |> put_flash(:info, "Created or Updated")
+         |> redirect(to: Routes.dashboard_path(BuddiManagerWeb.Endpoint, :index))}
 
-  #   conn
-  #   |> assign(:changeset, changeset)
-  #   |> put_layout("general.html")
-  #   |> render("index.html")
-  # end
+      {:error, changeset} ->
+        socket =
+          socket
+          |> put_flash(:info, "Something went wrong")
+          |> assign(preview_content: content)
+          |> assign(preview_label: label)
+          |> assign(changeset: changeset)
 
-  # def create(conn, note_params) do
-  #   with {:ok, %Note{} = note} <- Notes.create_note(note_params) do
-  #     conn
-  #     |> put_status(:created)
-  #     |> put_resp_header("location", Routes.note_web_path(conn, :show, note))
-  #     |> render("show.html", note: note)
-  #   end
-  # end
+        {:noreply, socket}
+    end
+  end
 end

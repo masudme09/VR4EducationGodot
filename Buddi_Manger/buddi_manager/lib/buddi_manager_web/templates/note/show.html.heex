@@ -1,0 +1,11 @@
+<div class="d-flex flex-column justify-content-start">
+  <div class="d-flex flex-row justify-content-between me-5 pe-5">
+    <h3> <%= @note.label %> </h3>
+    <a class="btn btn-primary" href={Routes.note_web_path(@conn, :edit, @note)} > Edit </a>
+  </div>
+  <div class="content">
+    <p>
+      <%= note_visualize(@note) %>
+    </p>
+  </div>
+</div>

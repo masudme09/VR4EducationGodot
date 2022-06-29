@@ -19,10 +19,8 @@ defmodule BuddiManager.Users.User do
     user
     |> pow_changeset(attrs)
     |> cast(attrs, @required ++ @optional)
-    |> IO.inspect
     |> validate_required(@required)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
-    |> IO.inspect(label: :final)
   end
 end

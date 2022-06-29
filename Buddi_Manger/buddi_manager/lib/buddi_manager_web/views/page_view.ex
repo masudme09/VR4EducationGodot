@@ -4,12 +4,6 @@ defmodule BuddiManagerWeb.PageView do
   @doc """
   This method will truncate the note to make it usable for dashboard card view
   """
-  def truncate_note(note) do
-    note.content
-    |> String.slice(0..100)
-    |> Kernel.<>("...")
-  end
-
   def first_notes_row(notes, per_row) do
     Enum.take(notes, per_row)
   end

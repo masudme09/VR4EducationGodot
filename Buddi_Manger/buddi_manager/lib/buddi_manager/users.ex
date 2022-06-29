@@ -22,7 +22,9 @@ defmodule BuddiManager.Users do
   end
 
   def list_users(limit) do
-    Repo.all(User, limit: limit)
+    User
+    |> limit(^limit)
+    |> Repo.all()
   end
 
   @doc """

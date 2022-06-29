@@ -5,9 +5,8 @@ defmodule BuddiManagerWeb.PageController do
 
   def index(conn, params) do
     # per page should be even number
-    per_page = 12
+    per_page = 10
     page = params["page"] || 1
-    IO.inspect(config: Pow.Plug.fetch_config(conn))
 
     per_row = div(per_page, 2)
     notes = Notes.list_notes(:paged, page, per_page)

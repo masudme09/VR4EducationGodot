@@ -8,7 +8,7 @@ defmodule BuddiManagerWeb.Router do
     plug :fetch_session
     plug :put_root_layout, {BuddiManagerWeb.LayoutView, :root}
     plug :fetch_live_flash
-    plug :protect_from_forgery
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -36,11 +36,14 @@ defmodule BuddiManagerWeb.Router do
 
     get "/dashboard", DashboardController, :index
     get "/", PageController, :index
+    get "/note/:id", NoteController, :show_web
+    delete "/note/:id/delete", NoteController, :delete_web
   end
 
   scope "/live", BuddiManagerWeb do
     pipe_through [:browser, :protected, :live_init]
     live "/note", NoteWebLive
+    live "/note/:id", NoteWebLive, :edit
   end
 
   # Other scopes may use custom stacks.

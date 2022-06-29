@@ -1,10 +1,10 @@
 - first_row_notes = first_notes_row(@notes.list, @per_row) 
 - second_row_notes = second_notes_row(@notes.list, @per_row)
 
-.d-flex.justify-content-start
+.d-flex.justify-content-between
   = for note <- first_row_notes do
     = render(BuddiManagerWeb.PageView, "note_card.html", conn: @conn, note: note)
-.d-flex.justify-content-start.my-3
+.d-flex.justify-content-between.my-3
   = for note <- second_row_notes do
     = render(BuddiManagerWeb.PageView, "note_card.html", conn: @conn, note: note)
 
