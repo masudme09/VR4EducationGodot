@@ -1,24 +1,49 @@
 defmodule BuddiManagerWeb.Router do
   use BuddiManagerWeb, :router
+  use Pow.Phoenix.Router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_live_flash
     plug :put_root_layout, {BuddiManagerWeb.LayoutView, :root}
-    plug :protect_from_forgery
+    plug :fetch_live_flash
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
+  end
+
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
+  pipeline :live_init do
+    plug Plugs.SocketInit
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", BuddiManagerWeb do
+  scope "/" do
     pipe_through :browser
+
+    pow_routes()
+  end
+
+  scope "/", BuddiManagerWeb do
+    pipe_through [:browser, :protected]
 
     get "/dashboard", DashboardController, :index
     get "/", PageController, :index
+    get "/note/:id", NoteController, :show_web
+    delete "/note/:id/delete", NoteController, :delete_web
+  end
+
+  scope "/live", BuddiManagerWeb do
+    pipe_through [:browser, :protected, :live_init]
+    live "/note", NoteWebLive
+    live "/note/:id", NoteWebLive, :edit
   end
 
   # Other scopes may use custom stacks.
@@ -36,15 +61,16 @@ defmodule BuddiManagerWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
 
-    scope "/" do
-      pipe_through :browser
+  # if Mix.env() in [:dev, :test] do
+  #   import Phoenix.LiveDashboard.Router
 
-      live_dashboard "/dashboard", metrics: BuddiManagerWeb.Telemetry
-    end
-  end
+  #   scope "/" do
+  #     pipe_through :browser
+
+  #     live_dashboard "/dashboard", metrics: BuddiManagerWeb.Telemetry
+  #   end
+  # end
 
   # Enables the Swoosh mailbox preview in development.
   #

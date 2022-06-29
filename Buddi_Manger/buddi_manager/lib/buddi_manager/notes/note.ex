@@ -1,13 +1,15 @@
 defmodule BuddiManager.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
+  alias BuddiManager.Users.User
 
-  @required [:created_by, :content]
+  @required [:created_by]
 
   @optional [
     :label,
     :created,
-    :updated
+    :updated,
+    :content
   ]
 
   schema "notes" do
@@ -16,14 +18,16 @@ defmodule BuddiManager.Notes.Note do
     field :updated, :utc_datetime
     field :label, :string
     field :content, :string
+    belongs_to :user, User
 
     timestamps()
   end
 
   @doc false
-  def changeset(note, attrs) do
+  def changeset(note, attrs \\ %{}) do
     note
     |> cast(attrs, @required ++ @optional)
     |> validate_required(@required)
+    |> cast_assoc(:user)
   end
 end

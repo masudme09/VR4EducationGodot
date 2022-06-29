@@ -1,4 +1,4 @@
-defmodule BuddiManager.Accounts do
+defmodule BuddiManager.Users do
   @moduledoc """
   The Accounts context.
   """
@@ -6,7 +6,7 @@ defmodule BuddiManager.Accounts do
   import Ecto.Query, warn: false
   alias BuddiManager.Repo
 
-  alias BuddiManager.Accounts.User
+  alias BuddiManager.Users.User
 
   @doc """
   Returns the list of users.
@@ -22,7 +22,9 @@ defmodule BuddiManager.Accounts do
   end
 
   def list_users(limit) do
-    Repo.all(User, limit: limit)
+    User
+    |> limit(^limit)
+    |> Repo.all()
   end
 
   @doc """

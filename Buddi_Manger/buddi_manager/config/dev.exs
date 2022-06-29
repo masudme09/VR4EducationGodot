@@ -19,10 +19,10 @@ config :buddi_manager, BuddiManager.Repo,
 config :buddi_manager, BuddiManagerWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 3000],
+  http: [ip: {0, 0, 0, 0}, port: 3000],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  debug_errors: false,
   secret_key_base: "mDsXEkaSKJz18Mlrpc5Yts7PljC+eZlmNT+NnTqHeAS2Nowmv6coR0dpZZ409vRe",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)

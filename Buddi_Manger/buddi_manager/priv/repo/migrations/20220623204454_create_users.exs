@@ -3,13 +3,14 @@ defmodule BuddiManager.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :user_name, :string
-      add :name, :string
+      add :email, :string, null: false
+      add :password_hash, :string
       add :institution, :string
-      add :password, :string
-      add :email, :string
+      add :name, :string
 
       timestamps()
     end
+
+    create unique_index(:users, [:email])
   end
 end

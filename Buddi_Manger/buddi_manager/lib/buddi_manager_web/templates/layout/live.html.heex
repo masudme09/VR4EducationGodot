@@ -1,11 +1,9 @@
-<main class="container">
-  <p class="alert alert-info" role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="info"><%= live_flash(@flash, :info) %></p>
-
-  <p class="alert alert-danger" role="alert"
-    phx-click="lv:clear-flash"
-    phx-value-key="error"><%= live_flash(@flash, :error) %></p>
-
-  <%= @inner_content %>
+<main class="root">
+  <%= render("header_live.html", conn: @conn) %>
+  <div class="page_content p-0">
+    <%= render("sidebar.html", conn: @conn, inner_content: @inner_content) %>
+  </div>
+  <div class="footer d-flex justify-content-center align-items-center">
+    <label class="label text-white">@Copyright MIT</label>
+  </div>
 </main>

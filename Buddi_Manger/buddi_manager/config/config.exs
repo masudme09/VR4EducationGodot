@@ -12,7 +12,7 @@ config :buddi_manager,
 
 # Configures the endpoint
 config :buddi_manager, BuddiManagerWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   render_errors: [view: BuddiManagerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: BuddiManager.PubSub,
   live_view: [signing_salt: "9MrFU5JF"]
@@ -57,6 +57,13 @@ config :phoenix, :json_library, Jason
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
+
+config :buddi_manager, :pow,
+  user: BuddiManager.Users.User,
+  repo: BuddiManager.Repo,
+  web_module: BuddiManagerWeb,
+  cache_store_backend: Pow.Store.Backend.MnesiaCache
+  # controller_callbacks: BuddiManagerWeb.Pow.ControllerCallbacks,
 
 config :mime, :types, %{
   "application/json" => ["json"]

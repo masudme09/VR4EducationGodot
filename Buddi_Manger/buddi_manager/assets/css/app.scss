@@ -3,11 +3,13 @@
 
 .navbar.main {
   background-color: #0099cc;
-  height: 50px;
+  height: 5vh;
 }
 
 html {
   font-family: "Lucida Sans", sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
 .label.logo {
@@ -44,12 +46,12 @@ h1 {
 
 .page_content {
   background-color: rgb(245, 242, 240);
-  height: 850px;
+  height: 80vh;
 }
 
 .footer {
   background-color: #0099cc;
-  height: 40px;
+  height: 4vh;
 }
 
 .md-12 {

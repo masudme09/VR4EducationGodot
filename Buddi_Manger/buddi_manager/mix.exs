@@ -48,7 +48,7 @@ defmodule BuddiManager.MixProject do
       {:phoenix_live_reload, "~> 1.3", only: :dev},
       {:phoenix_live_view, "~> 0.17.0"},
       {:phoenix_slime, github: "tensiondriven/phoenix_slime"},
-      {:floki, ">= 0.30.0", only: :test},
+      {:floki, "~> 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.6.1"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:mix_test_watch, "~> 1.0", [only: :dev, runtime: false]},
@@ -58,6 +58,8 @@ defmodule BuddiManager.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:pow, "~> 1.0.27"},
+      {:earmark, "~> 1.1"},
       {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
       {:neotoma, "~> 1.7.3", manager: :rebar3, override: true}
     ]

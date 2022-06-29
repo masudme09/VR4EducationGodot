@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-2 my-2 menu">
+    <%= render("sidebar_top_partial.html", conn: @conn, inner_content: @inner_content) %>
+  </div>
+
+  <div class="col-10 my-2 filter">
+		<div class="d-flex flex-row justify-content-center mb-3">
+      <a class="btn btn-outline-primary d-flex me-1 flex-row justify-content-start"
+      href={Routes.dashboard_path(@conn, :index)}>
+        <label class="ms-2">Text Notes</label>
+      </a>
+
+      <a class="btn d-flex btn-outline-primary flex-row ms-1 justify-content-start">
+        <label class="ms-2">Voice Notes</label>
+      </a>
+
+      <a class="btn d-flex btn-outline-primary flex-row ms-1 justify-content-start">
+        <label class="ms-2">Image Notes</label>
+      </a>
+    </div>
+    <%= @inner_content %>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<a
+  class="btn d-flex flex-row justify-content-start align-items-center"
+  href={Routes.page_path(@conn, :index)}>
+  <span class="material-icons md-18"> dashboard </span>
+  <label class="ms-1 md-14"> Home </label>
+</a>
+
+<a class="btn d-flex flex-row justify-content-start align-items-center"
+  href={Routes.live_path(@conn, BuddiManagerWeb.NoteWebLive)}>
+  <span class="material-icons md-18"> description </span>
+  <label class="ms-1 md-14"> Add Text Note </label>
+</a>
+
+<button class="btn d-flex flex-row justify-content-start align-items-center">
+  <span class="material-icons md-18"> mic </span>
+  <label class="ms-1 md-14"> Add voice Note </label>
+</button>
+
+<button class="btn d-flex flex-row justify-content-start align-items-center">
+  <span class="material-icons md-18"> image </span>
+  <label class="md-14 ms-1">Add img Note</label>
+</button>
+
+<div class="mt-5 users_list">
+  <button class="btn d-flex flex-row justify-content-start align-items-center">
+    <span class="material-icons md-18"> people </span>
+    <label class="ms-1 md-14"> Users </label>
+  </button>
+</div>
+
+<div class="d-flex flex-column justify-content-start">
+  <%= render(BuddiManagerWeb.UserView, "show_users.html", conn: @conn)%>
+</div>

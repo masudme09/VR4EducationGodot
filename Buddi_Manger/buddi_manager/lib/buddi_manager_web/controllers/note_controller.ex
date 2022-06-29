@@ -40,4 +40,23 @@ defmodule BuddiManagerWeb.NoteController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def show_web(conn, %{"id" => id}) do
+    note = Notes.get_note!(id)
+
+    conn
+    |> put_layout("general.html")
+    |> render("show.html", note: note)
+  end
+
+  def delete_web(conn, %{"id" => id}) do
+    IO.inspect("called")
+    note = Notes.get_note!(id)
+
+    with {:ok, %Note{}} <- Notes.delete_note(note) do
+      conn
+      |> put_flash(:deleted, note.label)
+      |> redirect(to: Routes.dashboard_path(conn, :index))
+    end
+  end
 end
