@@ -22,6 +22,6 @@ defmodule BuddiManagerWeb.UserView do
   end
 
   def list_users(count) do
-    BuddiManager.Users.list_users(count)
+    BuddiManager.Accounts.list_users(count)
   end
 end

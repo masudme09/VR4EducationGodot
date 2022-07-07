@@ -1,4 +1,4 @@
-defmodule BuddiManager.Repo.Migrations.AddUserContraintToNote do
+defmodule BuddiManager.Repo.Migrations.AddUserContraintToNoteUp do
   use Ecto.Migration
 
   def change do

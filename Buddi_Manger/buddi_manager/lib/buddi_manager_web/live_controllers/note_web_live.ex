@@ -9,14 +9,10 @@ defmodule BuddiManagerWeb.NoteWebLive do
     Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "index.html", assigns)
   end
 
-  def mount(params, %{"current_user" => user, "config" => pow_config} = _session, socket) do
+  def mount(params, %{"user_token" => user_token} = _session, socket) do
+    user = BuddiManager.Accounts.get_user_by_session_token(user_token)
+
     note_id = params |> Map.get("id")
-
-    fake_conn =
-      %Plug.Conn{}
-      |> Pow.Plug.put_config(pow_config)
-      |> Pow.Plug.assign_current_user(user, pow_config)
-
     changeset =
       if note_id do
         Repo.get!(Note, note_id)
@@ -31,7 +27,6 @@ defmodule BuddiManagerWeb.NoteWebLive do
 
     socket =
       socket
-      |> assign(conn: fake_conn)
       |> assign(current_user: user)
       |> assign(changeset: changeset)
       |> assign(preview_content: "")

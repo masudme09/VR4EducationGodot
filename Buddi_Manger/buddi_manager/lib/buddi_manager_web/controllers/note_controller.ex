@@ -50,7 +50,6 @@ defmodule BuddiManagerWeb.NoteController do
   end
 
   def delete_web(conn, %{"id" => id}) do
-    IO.inspect("called")
     note = Notes.get_note!(id)
 
     with {:ok, %Note{}} <- Notes.delete_note(note) do
