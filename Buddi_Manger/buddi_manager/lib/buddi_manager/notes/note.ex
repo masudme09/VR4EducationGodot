@@ -1,7 +1,7 @@
 defmodule BuddiManager.Notes.Note do
   use Ecto.Schema
   import Ecto.Changeset
-  alias BuddiManager.Users.User
+  alias BuddiManager.Accounts.User
 
   @required [:created_by]
 

@@ -7,6 +7,7 @@ defmodule BuddiManager.Repo.Migrations.CreateNotes do
       add :created, :utc_datetime
       add :updated, :utc_datetime
       add :label, :string
+      add :content, :string
 
       timestamps()
     end

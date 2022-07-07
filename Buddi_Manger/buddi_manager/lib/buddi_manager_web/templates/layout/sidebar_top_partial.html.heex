@@ -1,12 +1,12 @@
 <a
   class="btn d-flex flex-row justify-content-start align-items-center"
-  href={Routes.page_path(@conn, :index)}>
+  href={Routes.page_path(BuddiManagerWeb.Endpoint, :index)}>
   <span class="material-icons md-18"> dashboard </span>
   <label class="ms-1 md-14"> Home </label>
 </a>
 
 <a class="btn d-flex flex-row justify-content-start align-items-center"
-  href={Routes.live_path(@conn, BuddiManagerWeb.NoteWebLive)}>
+  href={Routes.live_path(BuddiManagerWeb.Endpoint, BuddiManagerWeb.NoteWebLive)}>
   <span class="material-icons md-18"> description </span>
   <label class="ms-1 md-14"> Add Text Note </label>
 </a>
@@ -29,5 +29,5 @@
 </div>
 
 <div class="d-flex flex-column justify-content-start">
-  <%= render(BuddiManagerWeb.UserView, "show_users.html", conn: @conn)%>
+  <%= render(BuddiManagerWeb.UserView, "show_users.html", conn: BuddiManagerWeb.Endpoint)%>
 </div>

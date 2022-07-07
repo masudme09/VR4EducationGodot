@@ -1,11 +1,11 @@
-<nav class="navbar main navbar-expand-lg navbar-light d-flex align-items-md-center justify-content-between">
-  <div class="mx-2">
-    <label class="label logo">Buddi</label>
-  </div>
-  <%= if Pow.Plug.current_user(@conn) do %>
-    <div class="mx-2 d-flex align-items-md-center ">
-      <%= link "account_circle", to: Routes.pow_registration_path(BuddiManagerWeb.Endpoint, :edit), method: :get,  class: "material-icons" %>
-      <%= link "Logout", to: Routes.pow_session_path(BuddiManagerWeb.Endpoint, :delete), method: :delete,  class: "mx-2 text-light" %>
-    </div>
-  <% end %>
-</nav>
+<%# <nav class="navbar main navbar-expand-lg navbar-light d-flex align-items-md-center justify-content-between"> %>
+  <%# <div class="mx-2"> %>
+    <%# <label class="label logo">Buddi</label> %>
+  <%# </div> %>
+  <%# <%= if @socket.assigns.current_user do %> %>
+    <%# <div class="mx-2 d-flex align-items-md-center "> %>
+      <%# <%= link "account_circle", to: Routes.user_settings_path(BuddiManagerWeb.Endpoint, :edit), method: :get,  class: "material-icons" %> %>
+      <%# <%= link "Logout", to: Routes.user_session_path(BuddiManagerWeb.Endpoint, :delete), method: :delete,  class: "mx-2 text-light" %> %>
+    <%# </div> %>
+  <%# <% end %> %>
+<%# </nav> %>

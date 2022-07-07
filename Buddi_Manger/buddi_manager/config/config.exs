@@ -58,13 +58,6 @@ config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
 
-config :buddi_manager, :pow,
-  user: BuddiManager.Users.User,
-  repo: BuddiManager.Repo,
-  web_module: BuddiManagerWeb,
-  cache_store_backend: Pow.Store.Backend.MnesiaCache
-  # controller_callbacks: BuddiManagerWeb.Pow.ControllerCallbacks,
-
 config :mime, :types, %{
   "application/json" => ["json"]
 }

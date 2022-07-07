@@ -40,6 +40,7 @@ defmodule BuddiManager.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.6.0"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.4"},
@@ -58,7 +59,6 @@ defmodule BuddiManager.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:pow, "~> 1.0.27"},
       {:earmark, "~> 1.1"},
       {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
       {:neotoma, "~> 1.7.3", manager: :rebar3, override: true}

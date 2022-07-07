@@ -1,0 +1,17 @@
+<div class="d-flex flex-column">
+  <h1>Forgot your password?</h1>
+
+  <.form let={f} for={:user} action={Routes.user_reset_password_path(@conn, :create)}>
+    <%= label f, :email, class: "my-3" %>
+    <%= email_input f, :email, required: true %>
+
+    <%# <div class="d-flex justify-content-center"> %>
+      <%= submit "Reset password" %>
+    <%# </div> %>
+  </.form>
+
+  <p class="d-flex justify-content-center">
+    <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
+    <%= link "Sign in", to: Routes.user_session_path(@conn, :new) %>
+  </p>
+</div>
