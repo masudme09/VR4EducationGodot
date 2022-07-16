@@ -6,9 +6,13 @@ defmodule BuddiManager.ViewHelpers do
   end
 
   def note_visualize(note) do
-    note.content
-    |> Earmark.as_html!()
-    |> Phoenix.HTML.raw()
+    if note && note.content do
+      note.content
+      |> Earmark.as_html!()
+      |> Phoenix.HTML.raw()
+    else
+      ""
+    end
   end
 
   def changeset_errors(changeset, opts \\ []) do

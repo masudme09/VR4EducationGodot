@@ -3,16 +3,16 @@
   <div class="d-flex flex-row" style="height: 100%;">
     <div class="d-flex flex-row flex-fill mx-5" style="min-height: 100%;">
 
-      <div class="row flex-fill">
-        <div class=" col-6 d-flex flex-column flex-fill">
+      <div class="row flex-fill" >
+        <div class=" col-6 d-flex flex-column flex-fill" id="form.note.create"  phx-hook="VoiceTyping">
           <.form let={f} for={@changeset} phx-change="form.create_note.change" phx-submit="form.create_note.submit" class="d-flex flex-column flex-fill">
-            <%= text_input f, :label, class: "mx-2 mb-1", placeholder: "Title" %>
+            <%= text_input f, :label, class: "mx-2 mb-1 title_input", id: "title",  placeholder: "Title" %>
             <%= changeset_errors(@changeset) %>
-            <%= textarea f, :content, class: "flex-fill mx-2", placeholder: "Content"%>
+            <%= textarea f, :content, class: "flex-fill mx-2 content_input", id: "content", placeholder: "Content"%>
             <%= hidden_input(f, :created_by, value: @current_user.name) %>
             <div class="d-flex flex-row justify-content-between mt-1 ms-2">
-              <button class="btn d-flex flex-row justify-content-start">
-                <span class="material-icons md-24"> mic </span>
+              <button class="btn d-flex flex-row justify-content-start voice_typing" type="button" id="btn.voice.typing" >
+                <span class="material-icons md-24 mic_icon" > mic_off </span>
                 <label class="ms-2"> Voice Typing </label>
               </button>
               <button class="btn d-flex flex-row justify-content-start me-2" type="submit">
