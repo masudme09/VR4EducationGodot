@@ -3,7 +3,7 @@ defmodule BuddiManager.Notes.Note do
   import Ecto.Changeset
   alias BuddiManager.Accounts.User
 
-  @required [:created_by]
+  @required [:created_by, :user_id]
 
   @optional [
     :label,
