@@ -19,10 +19,10 @@ As a restricted student,
 - I want to collaborate as like physical means with other students and teacher online to accomplish group works
 
 
-3. Advanced student: This role or persona represents a student who is technologically advanced and wants to use latest technology and use it more advanced way for learning. 
+3. Advanced student: This role or persona represents a student who is technologically advanced and wants to use latest technology and use it more advanced way for learning.
 
 As an advanced student,
 
 - I want to visit different places and time online so that I can learn geography and history easily
 - I want to have an interactive lab like environment so that I can do some experiment into it.
-- I want to perform multitasking so that I can compare different study materials easily.   
+- I want to perform multitasking so that I can compare different study materials easily.

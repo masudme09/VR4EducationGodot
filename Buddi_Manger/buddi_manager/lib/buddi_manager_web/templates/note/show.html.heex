@@ -3,9 +3,9 @@
     <h3> <%= @note.label %> </h3>
     <a class="btn btn-primary" href={Routes.note_web_path(@conn, :edit, @note)} > Edit </a>
   </div>
-  <div class="content">
-    <p>
+  <div class="note_content">
+    <div class="mx-2">
       <%= note_visualize(@note) %>
-    </p>
+    </div>
   </div>
 </div>
