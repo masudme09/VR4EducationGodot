@@ -54,6 +54,12 @@ h1 {
   height: 4vh;
 }
 
+.note_content {
+  height: 73vh;
+  overflow: scroll;
+  background-color: whitesmoke;
+}
+
 .md-12 {
   font-size: 12px;
 }

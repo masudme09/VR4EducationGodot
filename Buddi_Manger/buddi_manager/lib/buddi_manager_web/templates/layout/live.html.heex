@@ -1,6 +1,4 @@
 <main class="root">
-  <p><%= live_flash(@flash, :notice) %></p>
-  <p><%= live_flash(@flash, :error) %></p>
   <nav class="navbar main navbar-expand-lg navbar-light d-flex align-items-md-center justify-content-between">
     <div class="mx-2">
       <label class="label logo">Buddi</label>
@@ -26,4 +24,6 @@
   <div class="footer d-flex justify-content-center align-items-center">
     <label class="label text-white">@Copyright MIT</label>
   </div>
+  <p><%= live_flash(@flash, :notice) %></p>
+  <p><%= live_flash(@flash, :error) %></p>
 </main>
