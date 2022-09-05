@@ -10,3 +10,5 @@ Similiarly, we have to findout good solution for other activities and add them i
 I have named this two application as 1. Buddi - the utility tool and 2. Buddi - 3D immersive environment for focused education
 
 Initially I had kept both application in this repository. However, I am moving both application to their own repository for easier management. 
+
+New repository for Buddi - The utility tool: https://github.com/masudme09/Buddi
